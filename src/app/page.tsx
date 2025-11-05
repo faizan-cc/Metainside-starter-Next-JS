@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShadcnShowcase } from "@/components/ShadcnShowcase";
+
 import { MarketDemo } from "@/components/MarketDemo";
 import {
   Rocket,

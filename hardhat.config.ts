@@ -9,7 +9,7 @@ const config: HardhatUserConfig = {
   plugins: [hardhatToolboxViemPlugin],
   verify: {
     etherscan: {
-      apiKey: process.env.BASESCAN_API_KEY as SensitiveString,
+      apiKey: process.env.ETHERSCAN_API_KEY as SensitiveString,
     },
   },
   solidity: {

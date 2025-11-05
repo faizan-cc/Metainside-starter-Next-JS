@@ -25,11 +25,7 @@ const POPULAR_TOKENS = [
     address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
     name: "Wrapped Ethereum",
   },
-  {
-    symbol: "USDC",
-    address: "0xA0b86a33E6441d0B65C6302B96b38b53b8e86675",
-    name: "USD Coin",
-  },
+ 
   {
     symbol: "WBTC",
     address: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",

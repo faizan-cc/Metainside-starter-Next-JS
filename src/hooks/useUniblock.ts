@@ -1,10 +1,12 @@
-import useSWR from 'swr';
-import { uniblockService, TokenPrice, Portfolio, TrendingToken } from '@/lib/uniblock';
+import useSWR from "swr";
+import { uniblockService } from "@/lib/uniblock";
 
 // Hook for fetching token prices
 export function useTokenPrices(tokenAddresses: string[], chainId: number = 1) {
   const { data, error, isLoading } = useSWR(
-    tokenAddresses.length > 0 ? ['token-prices', tokenAddresses.join(','), chainId] : null,
+    tokenAddresses.length > 0
+      ? ["token-prices", tokenAddresses.join(","), chainId]
+      : null,
     () => uniblockService.getTokenPrices(tokenAddresses, chainId),
     {
       refreshInterval: 30000, // Refresh every 30 seconds
@@ -22,10 +24,9 @@ export function useTokenPrices(tokenAddresses: string[], chainId: number = 1) {
 // Hook for fetching single token price
 export function useTokenPrice(tokenAddress: string, chainId: number = 1) {
   const { data, error, isLoading } = useSWR(
-    tokenAddress ? ['token-price', tokenAddress, chainId] : null,
+    tokenAddress ? ["token-price", tokenAddress, chainId] : null,
     () => uniblockService.getTokenPrice(tokenAddress, chainId),
     {
-      refreshInterval: 10000, // Refresh every 10 seconds
       revalidateOnFocus: false,
     }
   );
@@ -40,10 +41,9 @@ export function useTokenPrice(tokenAddress: string, chainId: number = 1) {
 // Hook for fetching portfolio data
 export function usePortfolio(walletAddress: string, chainId: number = 1) {
   const { data, error, isLoading } = useSWR(
-    walletAddress ? ['portfolio', walletAddress, chainId] : null,
+    walletAddress ? ["portfolio", walletAddress, chainId] : null,
     () => uniblockService.getPortfolio(walletAddress, chainId),
     {
-      refreshInterval: 60000, // Refresh every minute
       revalidateOnFocus: true,
     }
   );
@@ -58,10 +58,9 @@ export function usePortfolio(walletAddress: string, chainId: number = 1) {
 // Hook for fetching trending tokens
 export function useTrendingTokens(limit: number = 10, chainId: number = 1) {
   const { data, error, isLoading } = useSWR(
-    ['trending-tokens', limit, chainId],
+    ["trending-tokens", limit, chainId],
     () => uniblockService.getTrendingTokens(limit, chainId),
     {
-      refreshInterval: 300000, // Refresh every 5 minutes
       revalidateOnFocus: false,
     }
   );
@@ -74,12 +73,22 @@ export function useTrendingTokens(limit: number = 10, chainId: number = 1) {
 }
 
 // Hook for fetching token transactions
-export function useTokenTransactions(walletAddress: string, tokenAddress?: string, chainId: number = 1) {
+export function useTokenTransactions(
+  walletAddress: string,
+  tokenAddress?: string,
+  chainId: number = 1
+) {
   const { data, error, isLoading } = useSWR(
-    walletAddress ? ['token-transactions', walletAddress, tokenAddress, chainId] : null,
-    () => uniblockService.getTokenTransactions(walletAddress, tokenAddress, chainId),
+    walletAddress
+      ? ["token-transactions", walletAddress, tokenAddress, chainId]
+      : null,
+    () =>
+      uniblockService.getTokenTransactions(
+        walletAddress,
+        tokenAddress,
+        chainId
+      ),
     {
-      refreshInterval: 30000, // Refresh every 30 seconds
       revalidateOnFocus: true,
     }
   );
@@ -94,10 +103,9 @@ export function useTokenTransactions(walletAddress: string, tokenAddress?: strin
 // Hook for fetching DEX trades
 export function useDexTrades(tokenAddress: string, chainId: number = 1) {
   const { data, error, isLoading } = useSWR(
-    tokenAddress ? ['dex-trades', tokenAddress, chainId] : null,
+    tokenAddress ? ["dex-trades", tokenAddress, chainId] : null,
     () => uniblockService.getDexTrades(tokenAddress, chainId),
     {
-      refreshInterval: 15000, // Refresh every 15 seconds
       revalidateOnFocus: false,
     }
   );

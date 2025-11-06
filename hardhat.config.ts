@@ -17,24 +17,12 @@ const config: HardhatUserConfig = {
       default: {
         compilers: [
           {
-            version: "0.8.28",
-          },
-          {
             version: "0.8.20",
           },
         ],
       },
       production: {
         compilers: [
-          {
-            version: "0.8.28",
-            settings: {
-              optimizer: {
-                enabled: true,
-                runs: 200,
-              },
-            },
-          },
           {
             version: "0.8.20",
             settings: {

@@ -1,11 +1,33 @@
 import type { NextConfig } from "next";
 
-console.log('⚙️ Loading Next.js configuration...');
-console.log('🐳 Environment:', process.env.NODE_ENV);
-console.log('📦 Next.js version: 16.0.1');
-
 const nextConfig: NextConfig = {
-  // Minimal config for debugging routing issues
+  // Configure allowed dev origins to prevent cross-origin warnings
+  allowedDevOrigins: [
+    "preview.metainside.io",
+    "*.preview.metainside.io",
+    ".preview.metainside.io"
+  ],
+  async headers() {
+    return [
+      {
+        source: "/_next/:path*",
+        headers: [
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "https://*.preview.metainside.io",
+          },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET, POST, PUT, DELETE, OPTIONS",
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value: "Content-Type, Authorization",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

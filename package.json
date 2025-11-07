@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint",
     "compile": "HOME=/tmp/hhhome npx hardhat build",
-    "deploy": "HOME=/tmp/hhhome npx hardhat ignition deploy ignition/modules/Counter.ts --network baseSepolia"
+    "deploy": "HOME=/tmp/hhhome npx hardhat ignition deploy ignition/modules/Counter.ts --network baseSepolia",
+    "deploy:taiko": "HOME=/tmp/hhhome npx hardhat ignition deploy ignition/modules/Counter.ts --network taikoHoodi"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

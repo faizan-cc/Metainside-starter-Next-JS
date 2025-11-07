@@ -49,6 +49,13 @@ const config: HardhatUserConfig = {
       url: process.env.BSC_TESTNET_RPC_URL as SensitiveString,
       accounts: [process.env.PRIVATE_KEY as SensitiveString],
     },
+    taikoHoodi: {
+      type: "http",
+      chainType: "op",
+      url: "https://rpc.hoodi.taiko.xyz",
+      accounts: [process.env.PRIVATE_KEY as SensitiveString],
+      chainId: 167013,
+    },
   },
 };
 

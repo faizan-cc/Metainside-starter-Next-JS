@@ -49,6 +49,14 @@ const config: HardhatUserConfig = {
       url: process.env.BSC_TESTNET_RPC_URL as SensitiveString,
       accounts: [process.env.PRIVATE_KEY as SensitiveString],
     },
+     nebulas: {
+      type: "http",
+      chainType: "op",
+      url: "https://rpc-nebulas-testnet.u2u.xyz",
+      accounts: [process.env.PRIVATE_KEY as SensitiveString],
+      chainId: 2484,
+    },
+    
     taikoHoodi: {
       type: "http",
       chainType: "op",
